@@ -1,0 +1,6 @@
+otpless.settings_form:
+  title: 'OTPLess'
+  description: 'Configure OTPLess.'
+  parent: system.admin_config_system
+  route_name: otpless.settings_form
+  weight: 10

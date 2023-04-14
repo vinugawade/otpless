@@ -1,0 +1,14 @@
+{
+  "name": "OTPLess",
+  "autoload": {
+    "psr-4": {
+      "Otpless\\": "."
+    }
+  },
+  "authors": [
+    {
+      "name": "otpless"
+    }
+  ],
+  "require": {}
+}

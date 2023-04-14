@@ -1,0 +1,5 @@
+name: OTPLess
+type: module
+description: OTPLess for Drupal.
+package: User
+core_version_requirement: ^9 || ^10

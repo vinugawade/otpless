@@ -2,4 +2,4 @@ name: OTPLess
 type: module
 description: OTPLess for Drupal.
 package: User
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^8.3 || ^9 || ^10

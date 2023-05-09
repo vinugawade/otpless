@@ -3,6 +3,6 @@ otpless.settings:
   type: config_object
   label: 'OTPLess settings'
   mapping:
-    example:
+    active:
       type: string
-      label: 'Example'
+      label: 'Enable OTPLess'

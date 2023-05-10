@@ -15,6 +15,6 @@ otpless-auth:
   remote: https://otpless.com/auth.js
   license:
     name: MIT
-  version: 1.0.0
+  version: VERSION
   js:
     https://otpless.com/auth.js: { type: external, minified: true }

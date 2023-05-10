@@ -5,6 +5,8 @@
  * Primary module hooks for OTPLess module.
  */
 
+use \Drupal\Core\Block\BlockPluginInterface;
+
 /**
  * Implemented hook_page_attachments
  *
@@ -12,10 +14,47 @@
  * @return void
  */
 function otpless_page_attachments(array &$attachments) {
-  $config = \Drupal::config('otpless.settings');
-  $is_enable = $config->get('active');
-  if ($is_enable) {
-    $attachments['#attached']['library'][] = 'otpless/otpless-auth';
-    $attachments['#attached']['library'][] = 'otpless/otpless';
+  // Check if the current page is the login page.
+  $path = \Drupal::routeMatch()->getRouteName();
+  if ($path == 'user.login') {
+    $config = \Drupal::config('otpless.settings');
+    $is_enable = $config->get('active');
+    if ($is_enable) {
+      $attachments['#attached']['library'] = [
+        'otpless/otpless-auth',
+        'otpless/otpless',
+        'otpless/otpless-extra'
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function otpless_block_view_alter(array &$build, BlockPluginInterface $block) {
+  // Check if the current block is the login block.
+  if ($block->getPluginId() == 'user_login_block') {
+    // Load the library if the login block is displayed on a page.
+    $config = \Drupal::config('otpless.settings');
+    $is_enable = $config->get('active');
+    if ($is_enable) {
+      $attachments['#attached']['library'] = [
+        'otpless/otpless-auth',
+        'otpless/otpless',
+        'otpless/otpless-extra'
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function otpless_form_alter(&$form, &$form_state, $form_id) {
+  // Check if the form is the user login form.
+  if ($form_id === 'user_login_form') {
+    // Modify the username field label.
+    $form['#prefix'] = '<div id="otpless" style="margin: 0 auto;"></div>';
   }
 }

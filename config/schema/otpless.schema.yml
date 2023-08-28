@@ -1,7 +1,7 @@
 # Schema for the configuration files of the OTPLess module.
 otpless.settings:
   type: config_object
-  label: 'OTPLess settings'
+  label: 'OTPLess Settings'
   mapping:
     active:
       type: string

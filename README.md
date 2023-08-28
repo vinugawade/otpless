@@ -1,3 +1,3 @@
-# otpless
+# OTPLESS
 
-OTPLess functionality for Drupal
+OTPLess functionality for Drupal.

@@ -1,7 +1,7 @@
 otpless.settings_form:
   path: '/admin/config/system/otpless'
   defaults:
-    _title: 'OTPLess settings'
+    _title: 'OTPLess Settings'
     _form: 'Drupal\otpless\Form\SettingsForm'
   requirements:
     _permission: 'administer otpless configuration'
